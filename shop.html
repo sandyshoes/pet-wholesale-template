@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Pet Wholesale Hub</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #4b3b2f;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ================= Header ================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 58px;
+      background: #ffffff;
+      border-bottom: 1px solid #b9a99b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1280px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #c18b52;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: #8e5a2a;
+      line-height: 1;
+    }
+
+    .login-link {
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+      margin-left: 4px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav a:hover {
+      color: var(--primary, #b37a39);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 30px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #f2f2f2;
+      color: #333;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    }
+
+    .top-btn:hover {
+      background: #eaeaea;
+    }
+
+    /* ================= Page ================= */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 16px 30px;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 32px;
+      color: #9d6730;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: #6e5a4a;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .page-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .back-link {
+      color: #6f4a25;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* ================= Filters ================= */
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .filters button {
+      border: 1px solid #eadccc;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: #f6ede4;
+      color: #7a4f24;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .filters button:hover {
+      background: #eddcc8;
+    }
+
+    .filters button.active {
+      background: var(--primary, #b37a39);
+      color: #fff;
+      border-color: var(--primary, #b37a39);
+    }
+
+    /* ================= Grid ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e7dfd8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      background: #f6f6f6;
+    }
+
+    .card .body {
+      padding: 14px;
+    }
+
+    .name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #5d3b1f;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #7a6656;
+      line-height: 1.5;
+    }
+
+    .price {
+      margin-top: 10px;
+      color: var(--primary, #b37a39);
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f6ebe0;
+      color: #8a5a2b;
+      font-weight: 700;
+    }
+
+    .empty {
+      padding: 24px;
+      color: #7a6656;
+      font-size: 14px;
+    }
+
+    /* ================= Footer ================= */
+    .footer {
+      margin-top: 36px;
+      background: #8f7057;
+      color: #fff;
+      text-align: center;
+      padding: 34px 16px 26px;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      opacity: 0.95;
+      margin-bottom: 6px;
+    }
+
+    /* ================= Responsive ================= */
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 0 10px;
+        gap: 10px;
+      }
+
+      .logo-text {
+        font-size: 20px;
+      }
+
+      .login-link {
+        font-size: 13px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a {
+        font-size: 12px;
+      }
+
+      .top-btn {
+        padding: 0 10px;
+        font-size: 12px;
+      }
+
+      .page-title {
+        font-size: 26px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js"></script></head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-icon">👤</div>
+        <a class="login-link" href="contact.html">Inquire</a>
+        <div class="logo-text">Pet Wholesale Hub</div>
+      </div>
+
+      <nav class="nav">
+        <a href="Index.html">Home</a>
+        <a href="shop.html">Products</a>
+        <a href="Index.html#why">About us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="top-btn" href="contact.html">Contact us</a>
+        <a class="top-btn" href="cart.html">
+          <span class="icon">🛒</span>
+          <span>Inquiry List</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-title">Products</div>
+    <div class="page-subtitle">Browse wholesale pet supplies by category</div>
+
+    <div class="page-top">
+      <a class="back-link" href="Index.html">← 返回首页</a>
+    </div>
+
+    <div class="search-tools"><input id="productSearch" type="search" placeholder="Search name, category or description" aria-label="Search products"><select id="priceSort" aria-label="Sort products"><option value="default">Latest</option><option value="asc">Price: low to high</option><option value="desc">Price: high to low</option></select></div><div class="filters" id="filterBar"></div>
+    <div id="shopGrid" class="grid"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-title">Pet Wholesale Hub</div>
+    <div class="footer-text">Email: wholesale@example.com</div>
+    <div class="footer-text">© 2024 Pet Wholesale Hub. All rights reserved.</div>
+  </footer>
+
+<script>
+let allProducts = [];
+let currentCategory = 'All';
+function safeJsonParse(v, fallback) {
+  if (v === null || v === undefined || v === '') return fallback;
+  if (Array.isArray(v) || typeof v === 'object') return v;
+  try {
+    const j = JSON.parse(v);
+    return j;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function getPid(item) {
+  return item.id || item.product_id || '';
+}
+
+function getMainImage(item) {
+  const imgs = safeJsonParse(item.images, []);
+  if (Array.isArray(imgs) && imgs.length) {
+    const first = imgs[0];
+    if (typeof first === 'string') return first;
+    if (first && typeof first === 'object') return first.url || first.src || '';
+  }
+  return item.cover_image || item.image || '';
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getMinPrice(item){
+  const sizes = Array.isArray(item.sizes) ? item.sizes : [];
+  const specs = safeJsonParse(item.specs, {});
+  const prices = sizes.map(s => {
+    const label = typeof s === 'object' ? (s.label ?? s.name ?? s.value ?? s.size ?? s.text) : s;
+    return Number(specs[label] ?? (typeof s === 'object' ? s.price : undefined) ?? item.price);
+  }).filter(Number.isFinite);
+  const price = prices.length ? Math.min(...prices) : Number(item.price);
+  return Number.isFinite(price) ? price.toFixed(2) : '';
+}
+
+function renderFilters(){
+  const bar = document.getElementById('filterBar');
+  const cats = ['All', ...new Set(allProducts.map(p => p.category || '').filter(Boolean))];
+  bar.innerHTML = '';
+
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.textContent = cat === 'All' ? '全部' : cat;
+    btn.className = cat === currentCategory ? 'active' : '';
+    btn.onclick = () => {
+      currentCategory = cat;
+      renderFilters();
+      renderProducts();
+    };
+    bar.appendChild(btn);
+  });
+}
+
+function renderProducts(){
+  const box = document.getElementById('shopGrid');
+  let list = currentCategory === 'All'
+    ? allProducts
+    : allProducts.filter(p => (p.category || '') === currentCategory);
+
+  const keyword=document.getElementById('productSearch').value.trim().toLowerCase();
+  list=list.filter(p=>[p.name,p.description,p.category].join(' ').toLowerCase().includes(keyword));
+  const sort=document.getElementById('priceSort').value;
+  if(sort!=='default')list.sort((a,b)=>(Number(getMinPrice(a))-Number(getMinPrice(b)))*(sort==='asc'?1:-1));
+  box.innerHTML = '';
+  if (!list.length) {
+    box.innerHTML = '<div class="empty">暂无商品</div>';
+    return;
+  }
+
+  list.forEach(item => {
+    const pid = getPid(item);
+    const img = Site.image(getMainImage(item));
+    const minPrice = getMinPrice(item);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => {
+      location.href = 'product.html?id=' + encodeURIComponent(pid);
+    };
+
+    card.innerHTML = `
+      <img src="${escapeHtml(img)}" alt="">
+      <div class="body">
+        <div class="name">${escapeHtml(item.name || '')}</div>
+        <div class="small">${escapeHtml(item.category || '')}</div>
+        <div class="price">${Number(minPrice)>0 ? Site.money(minPrice) : 'Request quote'}</div>
+        ${item.featured ? '<div class="badge">Featured</div>' : ''}
+      </div>
+    `;
+    box.appendChild(card);
+  });
+}
+
+function loadProducts(){
+  document.getElementById('shopGrid').textContent='Loading products...';
+  fetch('get_products.php?t=' + Date.now(), { cache: 'no-store' })
+    .then(res => {
+      if (!res.ok) throw new Error('商品加载失败');
+      return res.json();
+    })
+    .then(json => {
+      if (!json.success || !Array.isArray(json.data)) throw new Error('商品加载失败');
+      allProducts = Array.isArray(json.data) ? json.data : [];
+      renderFilters();
+      renderProducts();
+    })
+    .catch(() => {
+      document.getElementById('shopGrid').innerHTML = '<div class="empty">商品加载失败</div>';
+    });
+}
+
+document.getElementById('productSearch').addEventListener('input',renderProducts);
+document.getElementById('priceSort').addEventListener('change',renderProducts);
+window.addEventListener('brand-ready',renderProducts);
+loadProducts();
+</script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 2,
+  "historical": {
+    "description": "Previous round; not counted as rerun results",
+    "date": "2026-10-25T03:17:22.780Z",
+    "passed": 71,
+    "evidence": "history/test-results-prior.json"
+  },
+  "current": {
+    "success": true,
+    "recordedAt": "2026-10-25T04:10:02.175Z",
+    "totalChecks": 128,
+    "suites": {
+      "regression": {
+        "runId": "d0ffafddda02",
+        "date": "2026-10-25T04:02:37.841Z",
+        "kind": "regression-rerun",
+        "passed": 71,
+        "tests": [
+          "All active PHP/JS syntax",
+          "a: migration retry is idempotent",
+          "b: migration retry is idempotent",
+          "Fresh database catalog is empty",
+          "Unauthenticated denied: save_product.php",
+          "Unauthenticated denied: delete_product.php",
+          "Unauthenticated denied: upload_image.php",
+          "Unauthenticated denied: delete_image.php",
+          "Unauthenticated denied: get_products.php",
+          "Unauthenticated denied: get_product.php",
+          "Unauthenticated denied: csv.php",
+          "Real password login and authenticated admin page",
+          "CSRF enforced",
+          "Write method enforced",
+          "Reject invalid product price",
+          "Reject invalid product specs",
+          "Reject invalid product sizes",
+          "Reject invalid product name",
+          "Reject invalid product images",
+          "Product create",
+          "Public detail uses DB, JSON and numeric prices",
+          "SQL injection does not expose products",
+          "Second deployment has no first-instance products",
+          "Other deployment rejects product update",
+          "Real first-instance cookie is rejected by second instance",
+          "Valid image upload",
+          "Uploaded image is accessible",
+          "Reject upload text",
+          "Reject upload php",
+          "Reject upload oversized",
+          "Edit persists image and name",
+          "Referenced image deletion denied",
+          "Cannot delete other-instance upload",
+          "Admin search works",
+          "Classification add",
+          "Classification rename",
+          "Classification rename updates products",
+          "Cannot delete occupied category",
+          "Brand settings save",
+          "Brand settings remain instance-local",
+          "CSV preview without mutation",
+          "CSV not applied before confirmation",
+          "CSV explicit confirmation persists",
+          "Duplicate CSV rejected with row cause",
+          "Invalid CSV header rejected",
+          "CSV invalid price has error details",
+          "Export is current-instance data",
+          "CSV conflict rolls entire batch back",
+          "Unwritable upload location returns controlled error",
+          "Unpublish hides list and detail",
+          "Product delete",
+          "Detached file cleanup",
+          "Private file deletion path traversal denied",
+          "Private route blocked /.env",
+          "Private route blocked /.private/original/data/orders.json",
+          "Private route blocked /data/orders.json",
+          "Private route blocked /config/brand.local.json",
+          "Private route blocked /database/001_catalog.sql",
+          "Private route blocked /tests/run.mjs",
+          "Public page /",
+          "Public page /shop.html",
+          "Public page /product.html",
+          "Public page /contact.html",
+          "Public page /cart.html",
+          "Public page /checkout.html",
+          "Checkout explicit unavailable",
+          "Legacy payment API cannot claim success",
+          "Logout revokes session",
+          "Missing DB configuration fails closed",
+          "Unreachable database fails",
+          "Login throttling persists across requests"
+        ],
+        "limitations": [
+          "Prior browser visual QA was not repeated by this suite.",
+          "Production TLS, nginx and Docker are not exercised by this suite."
+        ]
+      },
+      "cleanInstall": {
+        "runId": "e795de2fb51c",
+        "kind": "clean-zip-install",
+        "startedAt": "2026-10-25T04:02:27.401Z",
+        "archiveSha256": "f05c9b733b298aa2967cd5348b5648251959e809d8120288fc59a125a3127ff4",
+        "steps": [
+          {
+            "name": "ZIP entries and every manifest digest verified",
+            "passed": true
+          },
+          {
+            "name": "a: extract contains no application .env or uploads",
+            "passed": true
+          },
+          {
+            "name": "a: runtime prerequisites present",
+            "passed": true
+          },
+          {
+            "name": "a: README environment and dedicated DB connection pass doctor",
+            "passed": true
+          },
+          {
+            "name": "a: install failure gives controlled actionable error",
+            "passed": true
+          },
+          {
+            "name": "a: corrected environment recovers without deleting data",
+            "passed": true
+          },
+          {
+            "name": "a: migrations initialize a new database",
+            "passed": true
+          },
+          {
+            "name": "a: migration rerun is idempotent",
+            "passed": true
+          },
+          {
+            "name": "a: legacy migration checksum adoption requires explicit consent",
+            "passed": true
+          },
+          {
+            "name": "a: edited historical migration is rejected and restoration recovers",
+            "passed": true
+          },
+          {
+            "name": "a: weak initial administrator password rejected",
+            "passed": true
+          },
+          {
+            "name": "a: first administrator created via stdin",
+            "passed": true
+          },
+          {
+            "name": "a: duplicate administrator cannot overwrite account",
+            "passed": true
+          },
+          {
+            "name": "a: initialized administrator can sign in",
+            "passed": true
+          },
+          {
+            "name": "b: extract contains no application .env or uploads",
+            "passed": true
+          },
+          {
+            "name": "b: runtime prerequisites present",
+            "passed": true
+          },
+          {
+            "name": "b: README environment and dedicated DB connection pass doctor",
+            "passed": true
+          },
+          {
+            "name": "b: install failure gives controlled actionable error",
+            "passed": true
+          },
+          {
+            "name": "b: corrected environment recovers without deleting data",
+            "passed": true
+          },
+          {
+            "name": "b: migrations initialize a new database",
+            "passed": true
+          },
+          {
+            "name": "b: migration rerun is idempotent",
+            "passed": true
+          },
+          {
+            "name": "b: legacy migration checksum adoption requires explicit consent",
+            "passed": true
+          },
+          {
+            "name": "b: edited historical migration is rejected and restoration recovers",
+            "passed": true
+          },
+          {
+            "name": "b: weak initial administrator password rejected",
+            "passed": true
+          },
+          {
+            "name": "b: first administrator created via stdin",
+            "passed": true
+          },
+          {
+            "name": "b: duplicate administrator cannot overwrite account",
+            "passed": true
+          },
+          {
+            "name": "b: initialized administrator can sign in",
+            "passed": true
+          },
+          {
+            "name": "Instance B initially empty",
+            "passed": true
+          },
+          {
+            "name": "Clean install product create",
+            "passed": true
+          },
+          {
+            "name": "Created product publicly visible",
+            "passed": true
+          },
+          {
+            "name": "Clean install real image upload",
+            "passed": true
+          },
+          {
+            "name": "Clean install edit persists",
+            "passed": true
+          },
+          {
+            "name": "Clean install CSV preview",
+            "passed": true
+          },
+          {
+            "name": "Clean install CSV confirmation",
+            "passed": true
+          },
+          {
+            "name": "Clean install CSV export includes instance data",
+            "passed": true
+          },
+          {
+            "name": "Other instance catalog cannot see A",
+            "passed": true
+          },
+          {
+            "name": "Other instance export excludes A",
+            "passed": true
+          },
+          {
+            "name": "Other instance storage cannot access A image",
+            "passed": true
+          },
+          {
+            "name": "Cross-instance cookie rejected",
+            "passed": true
+          },
+          {
+            "name": "Database grants prevent cross-instance SQL",
+            "passed": true
+          },
+          {
+            "name": "Restart retains products and attached image",
+            "passed": true
+          },
+          {
+            "name": "Restart retains imported CSV data",
+            "passed": true
+          },
+          {
+            "name": "Product deletion after restart",
+            "passed": true
+          },
+          {
+            "name": "Deletion retains shared-storage file until explicit cleanup",
+            "passed": true
+          }
+        ],
+        "success": true,
+        "limitations": [
+          "Local PHP development server and MariaDB only; no production TLS/nginx/Docker certification.",
+          "No original business database is queried or selected."
+        ],
+        "finishedAt": "2026-10-25T04:02:33.842Z",
+        "passed": 44,
+        "cleanup": {
+          "success": true,
+          "errors": []
+        }
+      },
+      "releaseTooling": {
+        "kind": "release-tooling",
+        "date": "2026-10-25T04:08:42.649Z",
+        "success": true,
+        "passed": 13,
+        "tests": [
+          "Truncated acceptance blocks packaging",
+          "Environment parser BOM",
+          "Environment parser quoted",
+          "Environment parser literal",
+          "Environment parser empty",
+          "Regression runner refuses implicit application DB configuration",
+          "one: package allowlist and content scan",
+          "one: archive create and manifest verification",
+          "two: package allowlist and content scan",
+          "two: archive create and manifest verification",
+          "Same sources and SOURCE_DATE_EPOCH produce identical ZIP bytes",
+          "Archive content tampering rejected",
+          "Unsafe ZIP paths rejected before extraction"
+        ]
+      }
+    }
+  },
+  "unsuccessfulAttempts": [
+    {
+      "description": "First clean-install attempt finished business checks but cleanup waited twice on a signal-exited process; no completed-run result, not counted as passed. Test process cleanup corrected and temporary schemas/users removed before rerun."
+    }
+  ],
+  "limitations": [
+    "No original business database was selected or queried this round.",
+    "No production TLS/nginx/Docker or new Figma/browser visual certification.",
+    "Final archive byte verification is recorded in the external final-artifact attestation to avoid a circular archive hash."
+  ]
+}

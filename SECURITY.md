@@ -1,0 +1,17 @@
+# Security model
+
+Independent deployments, not shared multitenancy. Each installation must use a distinct database/user, filesystem/volume, hostname and private configuration. Session names incorporate DB and base URL; cookies are HttpOnly/SameSite=Lax with configurable Secure, idle expiry is 1 hour, login rotates the session ID. Production must use HTTPS and SESSION_SECURE=1. No credentials enter public brand JSON.
+
+Admin read APIs require a real session with an existing DB admin ID. Mutations require POST + session CSRF token. Login has CSRF and persistent account/IP failure buckets (10 attempts / 15 min). Proxy deployments must configure real client IP at the server; the app deliberately does not trust arbitrary X-Forwarded-For. Application throttling supplements reverse-proxy limits; account-based limiting can temporarily affect legitimate admins and is not a complete anti-DoS system.
+
+Prepared SQL, strict product/CSV validation and contextual HTML escaping are used. Uploaded images are content/type/size/dimension checked, executable tags rejected, assigned random filenames and served with PHP execution disabled. Public product images accept controlled local image paths or HTTPS URLs; third-party images can contact third-party servers in a visitor's browser, so prefer owned local uploads. SVG upload is disallowed. Generated static SVG placeholders contain no scripts.
+
+Deleted products do not delete files. Explicit cleanup is limited to new generated filenames in the configured upload directory and checks known product/brand/legacy-home references. It does not discover arbitrary external/manual references; operators should coordinate configuration editing and cleanup. Concurrent edits do not have optimistic-lock/version conflict detection; a later successful edit can replace an earlier edit. Use one editor per product where possible.
+
+Legacy customer/order/payment interfaces fail closed with 501. Old JSON, configs, scripts, private snapshots and database resources are blocked by .htaccess/dev router and excluded from release. Deployments without those routing protections are unsafe: .gitignore alone never prevents web access. Source templates contain no real customer records; keep logs, session files and backups outside the web root. Disable directory listing and PHP error display. Do not expose the development server to the public internet.
+
+Server errors are logged privately; configure retention and log access restrictions. Login bucket records can be pruned where started_at is older than 24 hours to control growth. Use DB privileges restricted to the current schema and revoke CREATE from the runtime user after migrations if desired; supply a separate migration user for future upgrades.
+
+For a vulnerability, contact the repository owner through a private channel once a repository/contact has been established. Do not post credentials/customer data in public issues. No external vulnerability scan, penetration test, independent security review or compliance certification is claimed.
+
+Release hardening: original private records/assets are compared by fingerprints in an external audit; regex scanning does not prove absence of all secrets. Migration checksums prevent silent changes to already applied SQL; explicit legacy adoption requires operator review. Tests require a separate operator configuration and never silently fall back to the application database. Test operator credentials/logs/extracted test installations are private artifacts, not release files.

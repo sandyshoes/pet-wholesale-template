@@ -1,0 +1,2 @@
+id,name,category,price,description,images,colors,sizes,specs,featured,status
+demo-only-001,EXAMPLE ONLY - Replace before publishing,Example category,12.50,Illustrative data only - not a real product,"[""assets/placeholder.svg""]","[""Gray""]","[""S"",""M""]","{""S"":12.50,""M"":15.00}",0,off

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Order - Pet Wholesale Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background, #fffaf5);
+      color: #3b2d23;
+    }
+
+    .header {
+      height: 58px;
+      background: #fff;
+      border-bottom: 1px solid #8d7a68;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      gap: 10px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #c79763;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .logo-wrap a {
+      color: var(--primary, #b37a39);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .logo-text {
+      font-size: 27px;
+      font-weight: 700;
+      color: var(--primary, #b37a39);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex: 1;
+      margin-left: 60px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: #222;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary, #b37a39);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .top-btn {
+      height: 34px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: #f4f4f4;
+      color: #2d2d2d;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .top-btn .icon {
+      font-size: 13px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .title {
+      text-align: center;
+      color: var(--primary, #b37a39);
+      margin: 10px 0 24px;
+    }
+
+    .order-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .order-card {
+      background: #fff;
+      border: 1px solid #eadccd;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    }
+
+    .order-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #eadccd;
+    }
+
+    .status {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f6ebe0;
+      color: #8a5a2b;
+      font-weight: 700;
+      height: fit-content;
+    }
+
+    .items {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1.4fr .6fr .6fr .6fr;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      background: #fcfaf7;
+      border-radius: 12px;
+      border: 1px solid #f0e1d0;
+    }
+
+    .summary {
+      margin-top: 14px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
+    .ops {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .op-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary, #b37a39);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .op-btn.secondary { background: #f1e1d2; color: #6f4a25; }
+    .op-btn.ghost { background: #fff; color: var(--primary, #b37a39); border: 1px solid #e2cdb4; }
+
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px dashed #e3c8aa;
+      border-radius: 16px;
+      background: #fffaf4;
+    }
+
+    .meta-line {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #7f6756;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f3e7d9;
+      color: #8a5a2b;
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        gap: 14px;
+        margin-left: 20px;
+      }
+
+      .logo-text {
+        font-size: 18px;
+      }
+
+      .row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js"></script></head>
+<body><header class="header"><div class="header-inner"><a href="Index.html" class="logo-text">Pet Wholesale Hub</a><nav class="nav"><a href="shop.html">Products</a><a href="contact.html">Contact</a></nav></div></header><main class="page"><h1>Wholesale inquiries</h1><p>Online customer accounts, orders, payments and shipment tracking are not enabled in this template. No payment is collected here.</p><p>Please contact the store owner to confirm prices, availability, shipping and payment arrangements.</p><a class="top-btn" href="contact.html">Contact the store</a> <a class="top-btn" href="cart.html">Your inquiry list</a></main><footer class="footer"></footer></body></html>

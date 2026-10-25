@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background, #fffaf5);
+      color: #3b2d23;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ===== Header same style as index ===== */
+    .header {
+      height: 58px;
+      background: #fff;
+      border-bottom: 1px solid #8d7a68;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #c79763;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .logo-text {
+      font-size: 27px;
+      font-weight: 700;
+      color: var(--primary, #b37a39);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex: 1;
+      margin-left: 60px;
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary, #b37a39);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .top-btn {
+      height: 34px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: #f4f4f4;
+      color: #2d2d2d;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .top-btn .icon {
+      font-size: 13px;
+    }
+
+    /* ===== Page content ===== */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 16px 70px;
+    }
+
+    .contact-hero {
+      background: linear-gradient(135deg, #fff 0%, #fff7ef 100%);
+      border: 1px solid #eddccf;
+      border-radius: 24px;
+      padding: 38px 28px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .contact-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #ead8c4;
+      color: #7a4f22;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.4px;
+    }
+
+    .contact-hero h1 {
+      font-size: 38px;
+      color: #a66f30;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .contact-hero p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #6a5a4d;
+      max-width: 780px;
+      margin: 0 auto 22px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid #ead9c8;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    }
+
+    .info-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #8c6d4f;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .info-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary, #b37a39);
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .info-text {
+      font-size: 14px;
+      color: #7d6a5a;
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    .email-box {
+      margin-top: 18px;
+      background: linear-gradient(135deg, #fffaf4 0%, #f7efe5 100%);
+      border: 1px solid #e6d7c6;
+      border-radius: 20px;
+      padding: 28px 20px;
+    }
+
+    .email-box .label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #efe1d1;
+      color: #7a4f22;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary, #b37a39);
+      margin-bottom: 10px;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: #8b6a45;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8a7a6a;
+      padding: 22px 16px 38px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        margin-left: 28px;
+        gap: 18px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 14px;
+      }
+
+      .header {
+        height: auto;
+      }
+
+      .nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .contact-hero h1 {
+        font-size: 28px;
+      }
+
+      .email-link {
+        font-size: 18px;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="assets/site.css"><script src="assets/site.js"></script></head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-icon">👤</div>
+        <a href="contact.html">Inquire</a>
+        <div class="logo-text">Pet Wholesale Hub</div>
+      </div>
+
+      <nav class="nav">
+        <a href="Index.html">Home</a>
+        <a href="shop.html">Products</a>
+        <a href="Index.html#why">About us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="top-btn" href="contact.html">Contact us</a>
+        <button class="top-btn" onclick="location.href='cart.html'">
+          <span class="icon">🛒</span><span>Inquiry List</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="contact-hero">
+      <div class="contact-badge">GET IN TOUCH</div>
+      <h1>Contact Us</h1>
+      <p>
+        For any inquiries, wholesale questions, or product-related matters, please contact us by email.
+        We will reply within 24 hours. In-stock items will be shipped within 72 hours.
+      </p>
+
+      <div class="email-box">
+        <div class="label">Email Address</div>
+        <div>
+          <a class="email-link" href="mailto:wholesale@example.com">
+            wholesale@example.com
+          </a>
+        </div>
+        <div class="small-note">
+          Please feel free to contact us anytime. We are here to help with your business needs.
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">RESPONSE TIME</div>
+          <div class="info-value">Within 24 Hours</div>
+          <div class="info-text">We will reply to your email as soon as possible.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-label">IN-STOCK SHIPPING</div>
+          <div class="info-value">Ships Within 72 Hours</div>
+          <div class="info-text">Ready-to-ship items will be dispatched quickly.</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-label">SUPPORT</div>
+          <div class="info-value">Wholesale & Product Inquiries</div>
+          <div class="info-text">Feel free to ask about pricing, stock, and custom orders.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    © 2024 Pet Wholesale Hub. All rights reserved.
+  </div>
+</body>
+</html>

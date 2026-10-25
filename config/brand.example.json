@@ -1,0 +1,14 @@
+{
+  "name": "Pet Wholesale Hub",
+  "email": "wholesale@example.com",
+  "intro": "Pet supplies for your wholesale business. Contact us for availability and a tailored quotation.",
+  "about": "Configure this section with your own company introduction before launch.",
+  "footer": "Pet Wholesale Hub · Independent wholesale catalog",
+  "logo": "assets/logo.svg",
+  "hero_image": "assets/placeholder.svg",
+  "primary": "#b37a39",
+  "background": "#fffaf5",
+  "currency": "USD",
+  "minimum_quantity": 30,
+  "quantity_step": 5
+}

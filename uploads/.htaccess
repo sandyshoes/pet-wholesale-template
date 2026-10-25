@@ -1,0 +1,5 @@
+Options -Indexes -ExecCGI
+RemoveHandler .php .phtml .phar
+<FilesMatch "(?i)\.(?!png$|jpe?g$|gif$|webp$)[^.]+$">
+Require all denied
+</FilesMatch>

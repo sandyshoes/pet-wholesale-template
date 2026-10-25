@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex Index.html
+RewriteEngine On
+RewriteRule ^(?:app|config|database|scripts|tests|docs|data|storage|\.private|dist)(?:/|$) - [F,L,NC]
+RewriteRule (^|/)\. - [F,L]
+RewriteRule \.(?:lnk|log|sql|sqlite|bak)$ - [F,L,NC]
+RewriteRule ^(?:cat2?|dog2?)\.png$ - [F,L,NC]
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "same-origin"
+</IfModule>
