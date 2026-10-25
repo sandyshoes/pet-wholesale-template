@@ -1,5 +1,7 @@
 # 本轮发行与GitHub发布审查
 
+> 后续授权更新（2026-10-25）：作者已确认 MIT 与 sandyshoes 署名，并确认有权授权包内代码；原图片/Figma 等排除项不变。以下保留当时审计记录，当前许可与公开状态见 [OPEN-SOURCE-STATUS.md](OPEN-SOURCE-STATUS.md)。
+
 状态：待作者确认的发行候选。没有关联远程或推送。历史审查另存 history/release-review-prior.md，历史测试71项不计入本轮。
 
 ## 保护与可审查范围

@@ -1,5 +1,7 @@
 # Pet Wholesale Hub
 
+[MIT licensed](LICENSE) · Copyright (c) 2026 sandyshoes.
+
 An independently deployable pet wholesale **catalog and inquiry template**, built on the original HTML/CSS/JavaScript + PHP project. Keeps its warm palette, card layouts, product details and quantity/variant workflow. There is no frontend framework, Composer/npm runtime dependency or compile step.
 
 This is not a payment processor or a finished ecommerce/fulfillment system. Customer accounts, checkout, payment and shipment APIs are explicitly unavailable (501). The inquiry list is browser-local and indicative; the visitor sends an email through their own mail application. No email is sent automatically. Product price, availability, shipping and payment terms require confirmation by the store owner.
@@ -112,7 +114,11 @@ Release packaging copies a strict allowlist, blocks truncated acceptance reports
 
 Product concept, business planning and Figma design were led by the original author with AI-assisted implementation. No Figma source/link was supplied for this audit, so pixel fidelity and original asset ownership are unverified. The original private source snapshot remains local in `.private/original`; it is not part of the release.
 
-**No license has been applied yet.** MIT is proposed for code whose rights the author confirms, based on the [OSI MIT license](https://opensource.org/license/mit). The author must approve the copyright attribution and licensed scope before a public open-source release. Private product/customer records, original unverified photos, logos and brands are excluded. The intended repository supplied by the author is https://github.com/sandyshoes/pet-wholesale-template.git, target main. Read-only git ls-remote returned no refs; the anonymous metadata API returned 404, so visibility is not verified. No remote was added, commit made, push performed or visibility changed. License and final publication approval remain pending.
+The repository's included software, documentation and generated SVG placeholders are licensed under [MIT](LICENSE), Copyright (c) 2026 sandyshoes. The author confirmed the right to license the included code. Retain the copyright and permission notice when redistributing.
+
+Original unverified photos, uploaded product/customer data, Figma assets and private configurations remain excluded. MIT does not grant rights to excluded resources, third-party runtime binaries, fonts or trademarks. See [resource notices](THIRD_PARTY_NOTICES.md) and [current open-source status](docs/OPEN-SOURCE-STATUS.md).
+
+The earlier audit reports are dated historical evidence: their references to pending licensing or unpublished code describe the state before the author's later authorization. They do not override LICENSE. No new payment, inventory or production-hosting capability is claimed by adding a license.
 
 ## Release-hardening evidence and migration upgrades
 

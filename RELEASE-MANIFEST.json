@@ -1,6 +1,8 @@
 {
-  "generated": "2026-10-25T04:12:01.998Z",
-  "releaseStatus": "review-only; license and publication approval pending",
+  "generated": "2026-10-25T04:43:12.461Z",
+  "releaseStatus": "MIT-licensed; public distribution authorized",
+  "license": "MIT",
+  "copyright": "2026 sandyshoes",
   "files": [
     {
       "path": ".env.example",
@@ -299,8 +301,8 @@
     },
     {
       "path": "docs/ACCEPTANCE.md",
-      "bytes": 4944,
-      "sha256": "8e87e9f74a797bef7b04d8fd9db86bfa5377a84bec627405abd160513ab1dd02"
+      "bytes": 5215,
+      "sha256": "5c3a9e0ac8d07ff833b77b02d03ef3586da9563ace35a5c1777e24e0dc81d435"
     },
     {
       "path": "docs/AUDIT.md",
@@ -338,9 +340,14 @@
       "sha256": "e45a17485ee9e418175263e2448f150970259ad0eecf85c65b8cc55a221ca92f"
     },
     {
+      "path": "docs/OPEN-SOURCE-STATUS.md",
+      "bytes": 1490,
+      "sha256": "00e929707f6472740db53b35faf7615531330046e25f3ad44454dbc4e8686dd0"
+    },
+    {
       "path": "docs/RELEASE-REVIEW.md",
-      "bytes": 4610,
-      "sha256": "0ca8b0c3655461dfb34e6a39e28ae3fea142937632be76b5c3674c448be6b685"
+      "bytes": 4881,
+      "sha256": "7c58ae8b6dbe77197ef320d700a0aab3a0c761e82a28020ce79ba3cbbc491e0f"
     },
     {
       "path": "docs/TEST-RESULTS.json",
@@ -371,6 +378,11 @@
       "path": "Index.html",
       "bytes": 12635,
       "sha256": "451ed0e24707d04f457e73d81049f2381717bcca77def34dfcea2ef63524e90c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1067,
+      "sha256": "cd9bb0bf3c7f46b720b167ad90fe983d94a3f1c2969cf01e4038d71f79dd04d8"
     },
     {
       "path": "login.html",
@@ -434,8 +446,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13901,
-      "sha256": "11396d90d88c0386a6911d82b44be9c9446c29b298b97688d0685798ebd8b99f"
+      "bytes": 14131,
+      "sha256": "5c422f4d45670421c43f1d01df6d5f66fd1ce908afee199926208e47351ab476"
     },
     {
       "path": "router.php",
@@ -464,8 +476,8 @@
     },
     {
       "path": "scripts/package-release.mjs",
-      "bytes": 3719,
-      "sha256": "7bc6de629900436a0e3dc5eb5a0a9c2af92d5cd83c31de13a6df418c0c612a99"
+      "bytes": 4004,
+      "sha256": "24d7d90c1daabe020068d92029bb33c3cf5b8cad63efc7ee7532a7a7c4f31ac1"
     },
     {
       "path": "scripts/release-audit.mjs",
@@ -514,8 +526,8 @@
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "bytes": 2251,
-      "sha256": "fdb35cc7a5253452ed7b95bfa325f2fb9c10560f61bc1cf3a6ae14d84dc5cc28"
+      "bytes": 2248,
+      "sha256": "8840e8df629c19991dacf9fda34fda928d6b00cbd800f012c53543c51c87ef05"
     },
     {
       "path": "tracking.html",
